@@ -1,0 +1,9 @@
+{
+  "name": "assisted_creation_tool",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/assisted_creation_tool/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project assisted_creation_tool --web",
+  "targets": {}
+}
