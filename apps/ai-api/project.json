@@ -1,0 +1,56 @@
+{
+  "name": "ai-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ai-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/ai-api",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/ai-api/src/main.ts",
+        "tsConfig": "apps/ai-api/tsconfig.app.json",
+        "assets": ["apps/ai-api/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ai-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ai-api:build:development"
+        },
+        "production": {
+          "buildTarget": "ai-api:build:production"
+        }
+      }
+    }
+  }
+}
