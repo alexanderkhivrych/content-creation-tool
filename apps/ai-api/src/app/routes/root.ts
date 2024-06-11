@@ -2,8 +2,8 @@ import { FastifyInstance, FastifyRequest } from 'fastify';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: 'sk-proj-Lj6jvurTQjmOsJeGHkhtT3BlbkFJ5hLfiWeZ44JDQ96IFhqR',
-}); // INFO: this my key for this demo
+  apiKey: process.env.OPEN_AI_KEY,
+});
 
 export default async function (fastify: FastifyInstance) {
   fastify.get(
